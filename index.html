@@ -3,74 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SQLite Table Viewer</title>
-  <!-- โหลด sql.js จาก CDN -->
+  <title>SQLite Demo - quiz1.db</title>
+  <!-- โหลด library sql.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.8.0/sql-wasm.js"></script>
-  
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-      background-color: #f9f9f9;
-    }
-    .search-box {
-      margin-bottom: 20px;
-    }
-    input[type="text"] {
-      padding: 8px 12px;
-      font-size: 14px;
-      width: 250px;
-    }
-    button {
-      padding: 8px 16px;
-      font-size: 14px;
-      cursor: pointer;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 4px;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-    #status {
-      margin-bottom: 15px;
-      font-weight: bold;
-      color: #555;
-    }
-    /* สไตล์สำหรับตาราง */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: white;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    th, td {
-      padding: 10px 14px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-    th {
-      background-color: #f2f2f2;
-      color: #333;
-    }
-    tr:hover {
-      background-color: #f5f5f5;
-    }
+    body { font-family: sans-serif; padding: 20px; }
+    .search-box { margin-bottom: 15px; }
+    #status { font-weight: bold; margin-bottom: 15px; color: #333; }
+    table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+    th { background-color: #f2f2f2; }
   </style>
 </head>
 <body>
 
-  <h2>ค้นหาและแสดงผลข้อมูล SQLite</h2>
+  <h1>ข้อมูลจาก quiz1.db</h1>
   
+  <div id="status">กำลังเริ่มต้น...</div>
+
   <div class="search-box">
-    <input type="text" id="searchInput" placeholder="พิมพ์คำค้นหา...">
+    <input type="text" id="searchInput" placeholder="พิมพ์ชื่อเพื่อค้นหา..." onkeyup="if(event.key === 'Enter') searchData()">
     <button onclick="searchData()">ค้นหา</button>
   </div>
 
-  <div id="status">กำลังโหลดระบบโปรอรอ...</div>
-
-  <!-- ตารางแสดงผลลัพธ์ -->
   <table id="resultTable" style="display: none;">
     <thead>
       <tr id="tableHeader"></tr>
