@@ -13,7 +13,7 @@ async function initDatabase() {
     statusEl.innerText = "กำลังดาวน์โหลดฐานข้อมูล...";
 
     // โหลดไฟล์ .db จาก repository (ปรับ path ให้ตรงกับไฟล์ของคุณ)
-    const response = await fetch('./data.db');
+    const response = await fetch('./quiz1.db');
     if (!response.ok) throw new Error("ไม่สามารถโหลดไฟล์ data.db ได้");
     
     const buffer = await response.arrayBuffer();
