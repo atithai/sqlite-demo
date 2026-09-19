@@ -44,7 +44,7 @@ function searchData() {
   bodyEl.innerHTML = '';
 
   // เขียนคำสั่ง SQL (ปรับเปลี่ยนชื่อตาราง และ คอลัมน์ ตามโครงสร้าง DB ของคุณ)
-  const query = `SELECT * FROM my_table WHERE name LIKE '%${keyword}%' LIMIT 50`;
+  const query = `SELECT * FROM quiz1 WHERE name LIKE '%${name}%' LIMIT 50`;
   
   try {
     // db.exec จะส่งคืนโครงสร้าง: [{ columns: ['col1', 'col2'], values: [[val1, val2], ...] }]
